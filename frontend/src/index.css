@@ -1,0 +1,28 @@
+main{
+  min-height: 80vh;
+}
+
+h3{
+  padding: 1rem 0;
+}
+
+.rating span{
+  margin: 0.1rem;
+}
+
+
+/* 
+'ml-auto' was not working
+*/
+.ml-auto, .mx-auto {
+  margin-left: auto!important;
+}
+
+
+
+.btn-wd {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  width:100%;   
+}
