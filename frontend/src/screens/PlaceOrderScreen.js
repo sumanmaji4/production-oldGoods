@@ -16,13 +16,17 @@ const PlaceOrderScreen = ({ history }) => {
 
     const cart = useSelector(state => state.cart)
     console.log(cart)
+    //console.log(cart.paymentMethod)
+    //console.log(cart.itemsPrice)
 
     // calculate price
     cart.itemsPrice = addDecimals(cart.cartItems.reduce(
         (acc, item) => acc + item.price * item.qty, 0
     ))
-    cart.shippingPrice = addDecimals(10)
+    cart.shippingPrice = 10.0
     cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice)).toFixed(2)
+
+    //console.log("1  "+cart.itemsPrice)
 
     const navigate = useNavigate();
     const orderCreate = useSelector(state => state.orderCreate)
@@ -33,6 +37,7 @@ const PlaceOrderScreen = ({ history }) => {
             //history.push
             navigate(`/order/${order._id}`)
         }
+        // eslint-disable-next-line
     }, [history, success])
 
     const placeOrderHandler = () => {
@@ -44,6 +49,8 @@ const PlaceOrderScreen = ({ history }) => {
             shippingPrice: cart.shippingPrice,
             totalPrice: cart.totalPrice,
         }))
+
+        console.log("2  "+cart.itemsPrice)
     }
 
     return (
@@ -130,7 +137,7 @@ const PlaceOrderScreen = ({ history }) => {
 
 
                             <ListGroup.Item>
-                                // I'm getting error here
+                                {/* I'm getting error here */}
                                 {error && <Message variant='danger'>{error}</Message>}
                             </ListGroup.Item>
 
